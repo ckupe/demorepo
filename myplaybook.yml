@@ -1,0 +1,28 @@
+---
+- name: My First Play
+  hosts: all
+  connection: winrm
+  
+  vars:
+    package_name: DRFZ.version
+
+  tasks:
+    - name: Download the Control-M Agent Archive for Windows
+      ansible.windows.win_get_url:
+        url: http://satelliteserver.tld/pulp/control-M/{{ package_name }}.zip
+        dest: C:\Control-M\{{ package_name }}
+
+    - name: Unzip the Control-M Installation Archive
+      ansible.windows.win_shell: |
+        tar -xf C:\Control-M\{{ package_name }}.zip
+
+    - name: Adding Templated Answer File
+      ansible.windows.win_template:
+        src: answer.xml.j2
+        dest: C:\Control-M\{{ package_name }}\answer.xml
+
+    - name: Install the Control-M Agent
+      ansible.windows.win_package:
+        path: C:\Control-M\{{ package_name }}
+        state: present
+        arguments: '-silent C:\Control-M\answer.xml'
