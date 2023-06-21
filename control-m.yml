@@ -1,0 +1,14 @@
+---
+- hosts: all
+  connection: winrm
+
+  vars:
+
+  roles:
+    - lacsid.controlm
+        download_location: https://satellite.../path/archive.zip
+        
+      
+    - lacsid.java_jdk
+        state: present
+        download_location: https://satellite.../path/java.exe

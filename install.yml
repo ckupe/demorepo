@@ -1,0 +1,21 @@
+---
+- hosts: all
+  connection: winrm
+
+  vars:
+
+  tasks:
+    - name: Download a file
+      ansible.xxx.somemodule:
+        param1:
+        param2:
+
+    - name: Extract something
+      ansible.x.win_shell: unzip -uqo somepath
+
+    
+    - name: Install the Software (make sure its present)
+      ansible.windows.win_package: setup.exe
+        state: present
+
+      

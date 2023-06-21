@@ -1,0 +1,7 @@
+---
+# tasks file for controlm
+- include_tasks: install.yml
+  when: state is 'present'
+
+- include_tasks: uninstall.yml
+  when: state is 'absent'

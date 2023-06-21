@@ -1,0 +1,13 @@
+---
+- name: cleanup file 
+    ansible.xxx.somemodule:
+      param1: C:\Temp\DRFK...
+
+- name: Uninstall the software 
+    ansible.x.win_shell: setup.exe -silent -uninstall
+
+- name: Cleanup Registry 
+    ansible.windows.win_registry:
+      state: absent
+
+      

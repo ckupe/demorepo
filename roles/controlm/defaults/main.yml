@@ -1,0 +1,4 @@
+---
+# defaults file for controlm
+download_location: http://mysatellite.mynetwork.mydomain.tld/repository/path/archive.zip
+state: present

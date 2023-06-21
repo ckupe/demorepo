@@ -1,6 +1,0 @@
----
-- hosts: all
-  connection: winrm
-
-  vars:
-  
